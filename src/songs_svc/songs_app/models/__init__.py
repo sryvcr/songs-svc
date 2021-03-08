@@ -1,1 +1,2 @@
-from .songs import Song
+from .band import Band
+from .song import Song
