@@ -18,12 +18,6 @@ $ source bin/activate
 ```
 
 3. Upload initial data to db
-```sh
-(songs-svc)$ src/manage.py migrate
-(songs-svc)$ src/manage.py shell < src/songs_svc/scripts/upload_data_to_db.py
-```
-
-4. Run server
 Don't forget create .env with the following variables  
 - SECRET_KEY
 - DEBUG
@@ -34,6 +28,12 @@ Don't forget create .env with the following variables
 - DB_PASSWORD
 - DB_HOST
 - DB_PORT
+```sh
+(songs-svc)$ src/manage.py migrate
+(songs-svc)$ src/manage.py shell < src/songs_svc/scripts/upload_data_to_db.py
+```
+
+4. Run server
 ```sh
 (songs-svc)$ src/manage.py runserver
 ```
