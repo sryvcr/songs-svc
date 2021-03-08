@@ -17,15 +17,25 @@ $ source bin/activate
 (songs-svc)$ pip install -r requirements.txt
 ```
 
-3. Run server
-```sh
-(songs-svc)$ src/manage.py runserver
-```
-
 3. Upload initial data to db
 ```sh
 (songs-svc)$ src/manage.py migrate
 (songs-svc)$ src/manage.py shell < src/songs_svc/scripts/upload_data_to_db.py
+```
+
+4. Run server
+Don't forget create .env with the following variables  
+- SECRET_KEY
+- DEBUG
+- ALLOWED_HOSTS
+- DB_ENGINE
+- DB_NAME
+- DB_USER
+- DB_PASSWORD
+- DB_HOST
+- DB_PORT
+```sh
+(songs-svc)$ src/manage.py runserver
 ```
 
 ### API Requests
