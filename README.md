@@ -7,8 +7,8 @@
 $ mkdir songs-svc
 $ cd songs-svc
 $ virtualenv . -p python3
-$ git clone https://github.com/sryvcr/starwarsfansite.git
-$ source /bin/activate
+$ git clone https://github.com/sryvcr/songs-svc
+$ source bin/activate
 (songs-svc)$ cd songs-svc
 ```
 
