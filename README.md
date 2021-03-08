@@ -29,6 +29,7 @@ $ source /bin/activate
 ```
 
 ### API Requests
+Note: in dit src/docs/postman you can find a postman collection file
 
 #### Query songs
 ```javascript

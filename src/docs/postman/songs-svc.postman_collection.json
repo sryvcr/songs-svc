@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "f01928f0-86f6-418c-a8ff-9cfccfc8da43",
+		"name": "songs-svc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "query songs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n    allSongs(\n        name_Icontains: \"Line\",\n        album_Icontains: \"cielo\",\n        band_Name_Icontains: \"Carrillo\",\n        genre_Icontains: \"Orches\", \n        subgenre_Icontains: \"Film\",\n        band_SimilarBands_Icontains: \"Calvin\"\n    ) {\n        edges {\n            node {\n                name,\n                album,\n                length,\n                genre,\n                subgenre,\n                tags,\n                instruments,\n                band {\n                    name,\n                    similarBands\n                }\n            }\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/graphql/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create song",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "ddPUTeRvorcPxq9CZN96JCU8KMxMPbnM54HmgfuYXqkUOxeCBzWUdgsKZ4TtnKJH",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation MyMutation {\n    insertSong(input: { \n        clientMutationId: \"1\",\n        datetime: \"07/03/21 06:31PM\",\n        externalId: 343,\n        name: \"prueba\",\n        album: \"prueba\",\n        band: \"prueba\",\n        artist: \"prueba\",\n        length: \"02:55\",\n        genre: \"prueba\",\n        subgenre: \"prueba\",\n        tags: \"prueba\",\n        instruments: \"prueba\",\n}) {\n        song {\n            datetime\n            externalId\n            name\n            album\n            artist\n            length\n            genre\n            subgenre\n            tags\n            instruments,\n            band {\n                name\n            }\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/graphql/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query bands",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n    allBands(\n        name_Icontains: \"Ignacio Lopez\",\n        similarBands_Icontains: \"Glenn\"\n    ) {\n        edges {\n            node {\n                name,\n                similarBands,\n                song {\n                    edges {\n                        node {\n                            name,\n                        }\n                    }\n                }\n            }\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/graphql/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create band",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "ddPUTeRvorcPxq9CZN96JCU8KMxMPbnM54HmgfuYXqkUOxeCBzWUdgsKZ4TtnKJH",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation MyMutation {\ninsertBand(input: { \n    clientMutationId: \"1\"\n    name: \"prueba\",\n    similarBands: \"prueba\",\n}) {\n        band {\n            name\n            similarBands\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/graphql/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
